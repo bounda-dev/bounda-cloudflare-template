@@ -1,0 +1,41 @@
+{
+  "name": "bounda-cloudflare-template",
+  "description": "An event-sourced app on Bounda: one Worker and one Durable Object per tenant, with its events and read models in the object's SQLite.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "prepare": "bounda generate",
+    "generate": "bounda generate",
+    "build": "bounda generate",
+    "dev": "bounda generate && wrangler dev",
+    "deploy": "bounda generate && wrangler deploy",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@bounda-dev/adapter-cloudflare": "^0.1.0-alpha.6",
+    "@bounda-dev/core": "^0.1.0-alpha.6"
+  },
+  "devDependencies": {
+    "@bounda-dev/cli": "^0.1.0-alpha.6",
+    "@cloudflare/workers-types": "^5.20260921.1",
+    "@playwright/test": "^1.63.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1",
+    "wrangler": "^4.136.0"
+  },
+  "cloudflare": {
+    "label": "Bounda event sourcing",
+    "products": [
+      "Workers",
+      "Durable Objects"
+    ],
+    "categories": [
+      "storage"
+    ]
+  }
+}

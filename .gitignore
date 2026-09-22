@@ -1,0 +1,7 @@
+node_modules/
+.bounda/
+**/+types/
+.wrangler/
+.dev.vars
+test-results/
+playwright-report/
