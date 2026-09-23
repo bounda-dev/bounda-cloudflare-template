@@ -7,25 +7,26 @@
     "node": ">=22.18"
   },
   "scripts": {
-    "prepare": "bounda generate",
-    "generate": "bounda generate",
+    "generate": "bounda generate && wrangler types",
+    "cf-typegen": "wrangler types",
     "build": "bounda generate",
-    "dev": "bounda generate && wrangler dev",
+    "dev": "bounda generate && wrangler types && wrangler dev",
     "deploy": "bounda generate && wrangler deploy",
-    "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "vitest run",
+    "typecheck": "bounda generate && wrangler types && tsc --noEmit",
+    "check": "bounda generate && wrangler types && tsc --noEmit && wrangler deploy --dry-run",
+    "test": "bounda generate && vitest run",
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@bounda-dev/adapter-cloudflare": "^0.1.0-alpha.7",
-    "@bounda-dev/core": "^0.1.0-alpha.7"
+    "@bounda-dev/adapter-cloudflare": "^0.1.0-alpha.8",
+    "@bounda-dev/core": "^0.1.0-alpha.8"
   },
   "devDependencies": {
-    "@bounda-dev/cli": "^0.1.0-alpha.7",
-    "@cloudflare/workers-types": "^5.20260921.1",
+    "@bounda-dev/cli": "^0.1.0-alpha.8",
+    "@cloudflare/vitest-plugin": "^1.2.0",
     "@playwright/test": "^1.63.0",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.1",
+    "vitest": "^4.1.11",
     "wrangler": "^4.136.0"
   },
   "cloudflare": {

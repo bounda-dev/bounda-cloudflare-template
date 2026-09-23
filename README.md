@@ -14,15 +14,21 @@ through the JSON API.
 
 <!-- dash-content-end -->
 
-The same project comes out of `npm create bounda@latest my-app -- --framework cloudflare`.
+The same project comes out of `npm create bounda@latest my-app -- --framework cloudflare`; this
+repository is generated from it on every release.
 
 ```bash
-npm install          # also runs bounda generate (prepare)
-npm test             # the domain, on an in-memory store
+npm install
+npm test             # the app and its API, inside workerd
 npm run test:e2e     # the page against wrangler dev, in Playwright
 npm run dev          # wrangler dev on http://localhost:8787
 npm run deploy       # wrangler deploy, to your Cloudflare account
 ```
+
+Every script first runs `bounda generate`, which writes the typed registry under `.bounda/` and a
+`+types/` folder next to each module; run it yourself after adding a module, so your editor sees
+its types. `dev`, `typecheck` and `check` also run `wrangler types`, which writes
+`worker-configuration.d.ts` from `wrangler.jsonc`.
 
 Open http://localhost:8787 once `dev` is running: `public/index.html` places orders and lists
 them through the API. Or from a terminal:
@@ -45,7 +51,8 @@ bounda.config.ts            storage: cloudflare()
 src/worker.ts               the Durable Object class and the HTTP API
 public/index.html           a page that uses the API, served as a static asset
 wrangler.jsonc              the binding and the SQLite migration for the object
-tests/orders.test.ts        the app on an in-memory adapter
+tests/orders.test.ts        the domain, on an in-memory store
+tests/api.test.ts           the API, against the Durable Object in workerd
 e2e/demo.spec.ts            the page, end to end
 ```
 
