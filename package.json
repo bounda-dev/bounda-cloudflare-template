@@ -18,11 +18,11 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@bounda-dev/adapter-cloudflare": "^0.1.0-alpha.8",
-    "@bounda-dev/core": "^0.1.0-alpha.8"
+    "@bounda-dev/adapter-cloudflare": "^0.1.0",
+    "@bounda-dev/core": "^0.1.0"
   },
   "devDependencies": {
-    "@bounda-dev/cli": "^0.1.0-alpha.8",
+    "@bounda-dev/cli": "^0.1.0",
     "@cloudflare/vitest-plugin": "^1.2.0",
     "@playwright/test": "^1.63.0",
     "typescript": "^7.0.2",
