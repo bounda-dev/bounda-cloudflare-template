@@ -18,16 +18,16 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@bounda-dev/adapter-cloudflare": "^0.1.0",
-    "@bounda-dev/core": "^0.1.0"
+    "@bounda-dev/cloudflare": "^0.2.0",
+    "@bounda-dev/core": "^0.2.0"
   },
   "devDependencies": {
-    "@bounda-dev/cli": "^0.1.0",
-    "@cloudflare/vitest-plugin": "^1.2.0",
+    "@bounda-dev/cli": "^0.2.0",
+    "@cloudflare/vitest-plugin": "^1.4.0",
     "@playwright/test": "^1.63.0",
     "typescript": "^7.0.2",
-    "vitest": "^4.1.11",
-    "wrangler": "^4.136.0"
+    "vitest": "^5.0.1",
+    "wrangler": "^4.149.0"
   },
   "cloudflare": {
     "label": "Bounda event sourcing",
